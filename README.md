@@ -22,8 +22,8 @@
 * Attacker processes raw keystrokes. 
 
 ### Changes to be made in payload.sh:
-* Replace ip(0.0.0.0) and port number(4444) with your servers ip address and port number on line no `10`.
-* Increase/Decrease time interval to restart service periodically (Default is 15 mins), on line no `14`.
+* Replace ip(0.0.0.0) and port number(4444) with your servers ip address and port number on line no `11`.
+* Increase/Decrease time interval to restart service periodically (Default is 15 mins), on line no `15`.
 
 ### LED Status:
 * `SETUP`   : MAGENTA
